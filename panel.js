@@ -516,6 +516,26 @@ chrome.devtools.network.onRequestFinished.addListener(function(req) {
                 //raid id
                 if(startinfo.multi == 1) {
                     raidID = startinfo.twitter.battle_id;
+
+                    var code = document.getElementById('code');
+                    code.value = raidID;
+
+                    code.style.position = 'fixed';
+                    code.style.width = '2em';
+                    code.style.height = '2em';
+                    code.style.padding = 0;
+                    code.style.border = 'none';
+                    code.style.outline = 'none';
+                    code.style.boxShadow = 'none';
+                    code.style.background = 'transparent';
+
+                    if(document.getElementById('copyRaidCode').checked) {
+                        code.focus();
+                        code.select();
+                        document.execCommand('copy');
+                    }
+
+
                 } else {
                     raidID = "";
                 }

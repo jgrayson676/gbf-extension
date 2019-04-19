@@ -1,123 +1,134 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="reset.css">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
-    </head>
+<head>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+</head>
 <body>
 
-    <div id="tabs">
-        <ul class="tab">
-            <li><a href="#damageLogger">Damage</a></li>
-            <li><a href="#settings">Settings</a></li>
-        </ul>
+<div id="tabs">
+    <ul class="tab">
+        <li><a href="#damageLogger">Damage</a></li>
+        <li><a href="#settings">Settings</a></li>
+    </ul>
 
-        <!-- Tab 1-->
-        <div id="damageLogger">
+    <!-- Tab 1-->
+    <div id="damageLogger">
         <a class="clickable" id="saveLog" download="GBFlog.html" style="color:white; position:absolute;">save</a>
         <h1>Damage Logger</h1>
 
-            <div class="main-flex">
+        <div class="main-flex">
 
-                <!--left column START-->
-                <div class="flex-item">
-                    <ul>
+            <!--left column START-->
+            <div class="flex-item">
+                <ul>
 
-                      <!--enemies START-->
-                      <li>
+                    <!--enemies START-->
+                    <li>
                         <div>
-                          <div class="flex-container">
-                            <h1>Enemies</h1>
-                            <p class="clickable" id="clearEnemyInfo">clear enemy info</p>
-                          </div>
-                          <div class="statSection" id="enemyInfo">
-                          </div>
+                            <div class="flex-container">
+                                <h1>Enemies</h1>
+                                <p class="clickable" id="clearEnemyInfo">clear enemy info</p>
+                            </div>
+                            <div class="statSection" id="enemyInfo">
+                            </div>
                         </div>
-                      </li>
-                      <!--enemies END-->
+                    </li>
+                    <!--enemies END-->
 
-                      <br/>
+                    <br/>
 
-                      <!--log START-->
-                      <li id="battleLog">
+                    <!--log START-->
+                    <li id="battleLog">
                         <div>
-                          <div class="flex-container">
-                  	       <h1>Battlelog</h1>
-                           <p class="clickable" id="clearLog">clear battlelog</p>
-                          </div>
-                 	        <div id="log-container">
-                      	     <ul id="log"></ul>
-                          </div>
+                            <div class="flex-container">
+                                <h1>Battlelog</h1>
+                                <p class="clickable" id="clearLog">clear battlelog</p>
+                            </div>
+                            <div id="log-container">
+                                <ul id="log"></ul>
+                            </div>
                         </div>
-                      </li>
+                    </li>
                     <!--log END-->
 
-                  </ul>
-                </div>
-                <!--left column END-->
+                </ul>
+            </div>
+            <!--left column END-->
 
-                <!--middle column START-->
-                <div class="flex-item">
-                    <ul>
-                      <!--raid id START-->
-                      <li class="statSection flex-container" id="raidID"></li>
-                      <!--raid id END-->
+            <!--middle column START-->
+            <div class="flex-item">
+                <textarea id="code"></textarea>
+                <ul>
+                    <!--raid id START-->
+                    <li class="statSection flex-container" id="raidID"></li>
+                    <!--raid id END-->
 
-                      <br/>
+                    <br/>
 
-                      <!--general statistics START-->
-                      <li>
+                    <!--general statistics START-->
+                    <li>
                         <div>
-                          <div class="flex-container">
-                            <h1>Statistics</h1>
-                            <p class="clickable" id="resetDamage">reset statistics</p>
-                          </div>
-                          <ul>
-                            <li class="flex-container"><p>total damage</p><p id="totalDamage">0</p></li>
-                            <li class="flex-container"><p class="sub2">total attack damage</p><p id="totalAttackDamage">0</p></li>
-                            <li class="flex-container"><p class="sub2">total skill damage</p><p id="totalSkillDamage">0</p></li>
-                            <li class="flex-container"><p class="sub2">total chain burst damage</p><p id="totalChainBurst">0</p></li>
-                            <li class="flex-container"><p class="sub2">total summon damage</p><p id="totalSummonDamage">0</p></li>
-                            <br/>
-                            <li class="flex-container"><p class="sub2">avg damage per turn</p><p id="damageTurn">0</p></li>
-                            <br/>
-                            <li class="flex-container"><p>skills per turn</p><p id="skillsTurn">0</p></li>
-                            <li class="flex-container"><p>summons per turn</p><p id="summonsTurn">0</p></li>
-                          </ul>
-                        </div>
-                      </li>
-                      <!--general statistics END-->
-
-                      <br/>
-
-                      <!--timer START-->
-                      <li>
-                          <h1>DPS</h1>
-                          <div class="clock">
                             <div class="flex-container">
-                              <p class="clickable" id="toggleTimer">start timer</p>
-                              <p class="clickable" id="clearTimer">clear timer</p>
-                              <h2 id="timer">00:00:00</h2>
+                                <h1>Statistics</h1>
+                                <p class="clickable" id="resetDamage">reset statistics</p>
                             </div>
-                          </div>
-                          <li class="flex-container"><p>timed total damage</p><p id="timedtotalDamage">0</p></li>
-                          <li class="flex-container"><p>damage per second</p><p id="damageTime">0</p></li>
-                      </li>
-                      <!--timer END-->
-                    </ul>
-                </div>
-                <!--middle column END-->
+                            <ul>
+                                <li class="flex-container"><p>total damage</p>
+                                    <p id="totalDamage">0</p></li>
+                                <li class="flex-container"><p class="sub2">total attack damage</p>
+                                    <p id="totalAttackDamage">0</p></li>
+                                <li class="flex-container"><p class="sub2">total skill damage</p>
+                                    <p id="totalSkillDamage">0</p></li>
+                                <li class="flex-container"><p class="sub2">total chain burst damage</p>
+                                    <p id="totalChainBurst">0</p></li>
+                                <li class="flex-container"><p class="sub2">total summon damage</p>
+                                    <p id="totalSummonDamage">0</p></li>
+                                <br/>
+                                <li class="flex-container"><p class="sub2">avg damage per turn</p>
+                                    <p id="damageTurn">0</p></li>
+                                <br/>
+                                <li class="flex-container"><p>skills per turn</p>
+                                    <p id="skillsTurn">0</p></li>
+                                <li class="flex-container"><p>summons per turn</p>
+                                    <p id="summonsTurn">0</p></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--general statistics END-->
 
-                <!--right column START-->
-                <div class="flex-item">
-                  <ul>
+                    <br/>
+
+                    <!--timer START-->
+                    <li>
+                        <h1>DPS</h1>
+                        <div class="clock">
+                            <div class="flex-container">
+                                <p class="clickable" id="toggleTimer">start timer</p>
+                                <p class="clickable" id="clearTimer">clear timer</p>
+                                <h2 id="timer">00:00:00</h2>
+                            </div>
+                        </div>
+                    <li class="flex-container"><p>timed total damage</p>
+                        <p id="timedtotalDamage">0</p></li>
+                    <li class="flex-container"><p>damage per second</p>
+                        <p id="damageTime">0</p></li>
+                    </li>
+                    <!--timer END-->
+                </ul>
+            </div>
+            <!--middle column END-->
+
+            <!--right column START-->
+            <div class="flex-item">
+                <ul>
 
                     <!--characters START-->
                     <li>
-                      <h1>Characters</h1>
-                      <div id="characterInfo">
-                      </div>
+                        <h1>Characters</h1>
+                        <div id="characterInfo">
+                        </div>
                     </li>
                     <!--characted END-->
 
@@ -125,101 +136,112 @@
 
                     <!-- Raid members START-->
                     <li id="raidHonors">
-                      <div class="flex-container">
-                        <h1>Raid Ranking</h1>
-                        <p class="clickable" id="resetRaidMembers">reset</p>
-                      </div>
-                      <ul id="raidHonorsList">
-                      </ul>
+                        <div class="flex-container">
+                            <h1>Raid Ranking</h1>
+                            <p class="clickable" id="resetRaidMembers">reset</p>
+                        </div>
+                        <ul id="raidHonorsList">
+                        </ul>
                     </li>
                     <!-- Raid members END-->
 
-                  </ul>
-                </div>
-                <!--right column END-->
-
+                </ul>
             </div>
-
-        	<div id="chartSection">
-            	<h1>Damage/Turn and Avg Damage/Turn in 1000s</h1>
-            	<div class="chartWrapper">
-                	<div class="chartAreaWrapper" id="adtcontainer">
-                    	<canvas id="graph"></canvas>
-                	</div>
-                	<canvas id="graphAxis"></canvas>
-            	</div>
-            </div>
+            <!--right column END-->
 
         </div>
 
-        <!-- Tab 2 -->
-        <div id="settings">
-            <h1>Settings</h1>
-
-            <table>
-              <tr>
-                <td class="flex-container">
-                  <p>Version 1.05</p>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>Reset on new raid</p>
-                </td>
-                <td>
-                  <label class="switch">
-                    <input type="checkbox" id="setResetRaid">
-                    <div class="slider round"></div>
-                  </label>
-                </td>
-                <td>
-                  <p>This will also reset the statistics between battles on multi-battle dungeons.</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>Timed enemy info update</p>
-                </td>
-                <td>
-                  <label class="switch">
-                    <input type="checkbox" id="setUpdateBoss">
-                    <div class="slider round"></div>
-                  </label>
-                </td>
-                <td>
-                  <p>Not sure how well this works or if it helps at all. Not enough testing.</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>Show raid honors</p>
-                </td>
-                <td>
-                  <label class="switch">
-                    <input type="checkbox" id="setRaidHonors">
-                    <div class="slider round"></div>
-                  </label>
-                </td>
-                <td></td>
-              </tr>
-            </table>
+        <div id="chartSection">
+            <h1>Damage/Turn and Avg Damage/Turn in 1000s</h1>
+            <div class="chartWrapper">
+                <div class="chartAreaWrapper" id="adtcontainer">
+                    <canvas id="graph"></canvas>
+                </div>
+                <canvas id="graphAxis"></canvas>
+            </div>
         </div>
 
     </div>
 
-    <script src="jquery-3.1.0.min.js"></script>
-    <script src="jquery-ui.min.js"></script>
-    <script src="Chart.bundle.min.js"></script>
-    <script src="util.js"></script>
-    <script src="timer.js"></script>
-    <script src="display.js"></script>
-    <script src="displayChart.js"></script>
-    <script src="saveToHtml.js"></script>
-    <script src="resetFunctions.js"></script>
-	  <script src="panel.js"></script>
+    <!-- Tab 2 -->
+    <div id="settings">
+        <h1>Settings</h1>
+
+        <table>
+            <tr>
+                <td class="flex-container">
+                    <p>Version 1.05</p>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Reset on new raid</p>
+                </td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" id="setResetRaid">
+                        <div class="slider round"></div>
+                    </label>
+                </td>
+                <td>
+                    <p>This will also reset the statistics between battles on multi-battle dungeons.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Timed enemy info update</p>
+                </td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" id="setUpdateBoss">
+                        <div class="slider round"></div>
+                    </label>
+                </td>
+                <td>
+                    <p>Not sure how well this works or if it helps at all. Not enough testing.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Show raid honors</p>
+                </td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" id="setRaidHonors">
+                        <div class="slider round"></div>
+                    </label>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Automatically copy raid codes</p>
+                </td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" id="copyRaidCode">
+                        <div class="slider round"></div>
+                    </label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<script src="jquery-3.1.0.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="Chart.bundle.min.js"></script>
+<script src="util.js"></script>
+<script src="timer.js"></script>
+<script src="display.js"></script>
+<script src="displayChart.js"></script>
+<script src="saveToHtml.js"></script>
+<script src="resetFunctions.js"></script>
+<script src="panel.js"></script>
 </body>
 </html>
